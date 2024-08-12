@@ -7,7 +7,6 @@ service: serverless-api-challenge-softtek
 
 plugins:
   - serverless-offline
-  - serverless-dynamodb-local
 
 custom:
   dynamodb:
@@ -61,10 +60,6 @@ resources:
       Properties:
         AttributeDefinitions:
           - AttributeName: userId
-            AttributeType: S
-          - AttributeName: email
-            AttributeType: S
-          - AttributeName: name
             AttributeType: S
         KeySchema:
           - AttributeName: userId
