@@ -7,6 +7,21 @@ service: serverless-api-challenge-softtek
 
 plugins:
   - serverless-offline
+  - serverless-dynamodb-local
+
+custom:
+  dynamodb:
+    # If you only want to use DynamoDB Local in some stages, declare them here
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+      seed: true
+      convertEmptyValues: true
 
 stages:
   default:
@@ -30,6 +45,7 @@ provider:
           Resource:
             - Fn::GetAtt: [UsersTable, Arn]
   environment:
+    ENV: ${sls:stage}
     USERS_TABLE: ${param:tableName}
 
 functions:
@@ -45,6 +61,10 @@ resources:
       Properties:
         AttributeDefinitions:
           - AttributeName: userId
+            AttributeType: S
+          - AttributeName: email
+            AttributeType: S
+          - AttributeName: name
             AttributeType: S
         KeySchema:
           - AttributeName: userId

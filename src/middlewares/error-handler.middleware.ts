@@ -28,7 +28,7 @@ export const errorHandlerMiddleware = (
     };
   }
 
-  if (process.env.ENV === "development") {
+  if (process.env.ENV === "development" || process.env.ENV === "dev") {
     response.stack = error.stack;
   }
 
