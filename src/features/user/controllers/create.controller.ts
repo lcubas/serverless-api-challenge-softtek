@@ -10,10 +10,7 @@ interface CreateUserDTO {
 }
 
 export const create = async (req: Request, res: Response) => {
-  const body = req.body;
-  const { name, email }: CreateUserDTO = body;
-
-  // TODO: Add validation
+  const { name, email }: CreateUserDTO = req.body;
 
   const data = {
     TableName: USERS_TABLE,

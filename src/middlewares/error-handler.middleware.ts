@@ -1,11 +1,14 @@
 import type { NextFunction, Request, Response } from "express";
 import HttpException from "../exceptions/HttpException";
 import { HttpStatus } from "../enums/HttpStatus";
+import UnprocessableEntityException from "../exceptions/UnprocessableEntityException";
 
+// TODO: Missing type definition errors key
 interface IResponseError {
-  code: number;
+  code: HttpStatus;
   message: string;
   stack?: string;
+  errors?: any;
 }
 
 export const errorHandlerMiddleware = (
@@ -14,18 +17,20 @@ export const errorHandlerMiddleware = (
   res: Response,
   __: NextFunction
 ): void => {
-  let response: IResponseError;
+  let response: IResponseError = {
+    code: HttpStatus.INTERNAL_SERVER_ERROR,
+    message: "Internal Server Error",
+  };
 
   if (error instanceof HttpException) {
     response = {
       code: error.status,
       message: error.message,
     };
-  } else {
-    response = {
-      code: HttpStatus.INTERNAL_SERVER_ERROR,
-      message: "Internal Server Error",
-    };
+
+    if (error instanceof UnprocessableEntityException) {
+      response.errors = error.errors;
+    }
   }
 
   if (process.env.ENV === "development" || process.env.ENV === "dev") {
