@@ -3,12 +3,15 @@ import HttpException from "../exceptions/HttpException";
 import { HttpStatus } from "../enums/HttpStatus";
 import UnprocessableEntityException from "../exceptions/UnprocessableEntityException";
 
-// TODO: Missing type definition errors key
+interface IRquestValidationErrors {
+  [key: string]: string[];
+}
+
 interface IResponseError {
   code: HttpStatus;
   message: string;
   stack?: string;
-  errors?: any;
+  errors?: IRquestValidationErrors;
 }
 
 export const errorHandlerMiddleware = (
