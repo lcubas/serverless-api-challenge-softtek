@@ -10,7 +10,7 @@ export class SpeciesAttributesMapping extends AttributeMapping {
       designacion: item.designation,
       editado: item.edited,
       color_de_ojos: item.eye_colors,
-      color_de_dcabello: item.hair_colors,
+      color_de_cabello: item.hair_colors,
       mundo_natal: item.homeworld,
       lenguaje: item.language,
       nombre: item.name,

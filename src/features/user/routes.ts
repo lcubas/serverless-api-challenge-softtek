@@ -8,7 +8,6 @@ import { createUserValidation } from "./validations/create-user.validation";
 
 const router = Router();
 
-// Define your routes here
 router.post(
   "/",
   asyncHandlerMiddleware(requestValidatorMiddleware(createUserValidation)),

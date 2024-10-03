@@ -19,6 +19,6 @@ export const getSpeciesById = async (req: Request, res: Response) => {
   }
 
   res.json({
-    data: new SpeciesAttributesMapping().mapping(specie),
+    data: new SpeciesAttributesMapping().map(specie),
   });
 };

@@ -6,6 +6,6 @@ export const getSpecies = async (_: Request, res: Response) => {
   const species = await SwapiService.getSpecies();
 
   res.json({
-    data: new SpeciesAttributesMapping().fromArray(species),
+    data: new SpeciesAttributesMapping().map(species),
   });
 };
