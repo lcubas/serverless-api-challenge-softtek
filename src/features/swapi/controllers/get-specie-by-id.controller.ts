@@ -3,7 +3,7 @@ import SwapiService from "../services/SwapiService";
 import HttpException from "../../../exceptions/HttpException";
 import { HttpStatus } from "../../../enums/HttpStatus";
 import { SpeciesAttributesMapping } from "../attributes-mapping/SpeciesAttributesMapping";
-import NotFoundException from '../../../exceptions/NotFoundException';
+import NotFoundException from "../../../exceptions/NotFoundException";
 
 export const getSpeciesById = async (req: Request, res: Response) => {
   const specieId = req.params.id;
@@ -19,6 +19,6 @@ export const getSpeciesById = async (req: Request, res: Response) => {
   }
 
   res.json({
-    data: new SpeciesAttributesMapping().mapping(specie)
+    data: new SpeciesAttributesMapping().mapping(specie),
   });
 };

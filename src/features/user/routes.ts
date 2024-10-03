@@ -12,7 +12,7 @@ const router = Router();
 router.post(
   "/",
   asyncHandlerMiddleware(requestValidatorMiddleware(createUserValidation)),
-  asyncHandlerMiddleware(createUser)
+  asyncHandlerMiddleware(createUser),
 );
 router.get("/", asyncHandlerMiddleware(getUsers));
 router.get("/:userId", asyncHandlerMiddleware(getUserById));

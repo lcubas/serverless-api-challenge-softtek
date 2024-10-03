@@ -14,6 +14,7 @@ export type DynamoDBScanParams = ScanCommandInput & BaseDynamoParams;
 
 export type DynamoDBGetParams = GetCommandInput & BaseDynamoParams;
 
-export type DynamoDBPutParams<T> = PutCommandInput & BaseDynamoParams & {
-  Item: T;
-};
+export type DynamoDBPutParams<T> = PutCommandInput &
+  BaseDynamoParams & {
+    Item: T;
+  };

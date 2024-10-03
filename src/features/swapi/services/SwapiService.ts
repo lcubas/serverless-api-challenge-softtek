@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 class SwapiService {
-  private static readonly baseUrl = 'https://swapi.dev/api';
+  private static readonly baseUrl = "https://swapi.dev/api";
 
   static async getSpecies(): Promise<any[]> {
     try {
       const response = await axios.get(`${SwapiService.baseUrl}/species`);
       return response.data.results;
     } catch (error) {
-      console.error('SwapiService::getSpecies', error);
+      console.error("SwapiService::getSpecies", error);
       throw error;
     }
   }
@@ -18,7 +18,7 @@ class SwapiService {
       const response = await axios.get(`${SwapiService.baseUrl}/species/${id}`);
       return response.data;
     } catch (error) {
-      console.error('SwapiService::getSpecieById', error);
+      console.error("SwapiService::getSpecieById", error);
       throw error;
     }
   }

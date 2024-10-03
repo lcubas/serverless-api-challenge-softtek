@@ -6,7 +6,7 @@ export const requestValidatorMiddleware = (schema: ZodSchema<any>) => {
   return async (
     req: Request,
     _: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> => {
     const zodValidationResult = await schema.safeParseAsync(req.body);
 

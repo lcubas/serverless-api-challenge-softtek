@@ -12,9 +12,9 @@ export default abstract class AttributeMapping {
 
   /**
    * Define the mapping of the attributes of the item
-   * 
+   *
    * @param item Record<string, any>
    * @returns Record<string, any>
    */
-  abstract getAttributesMapping(item: Record<string, any>): Record<string, any>
+  abstract getAttributesMapping(item: Record<string, any>): Record<string, any>;
 }

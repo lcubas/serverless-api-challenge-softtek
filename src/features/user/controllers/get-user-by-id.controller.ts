@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import DynamoDBService from "../../../services/dynamo-db/DynamoDB";
-import { HttpStatus } from '../../../enums/HttpStatus';
-import NotFoundException from '../../../exceptions/NotFoundException';
+import { HttpStatus } from "../../../enums/HttpStatus";
+import NotFoundException from "../../../exceptions/NotFoundException";
 import { USERS_TABLE } from "../contants";
 
 export const getUserById = async (req: Request, res: Response) => {
@@ -12,11 +12,11 @@ export const getUserById = async (req: Request, res: Response) => {
       id: userId,
     },
   };
-  
+
   const person = await DynamoDBService.get(data);
 
   if (!person) {
-    throw new NotFoundException('Person not found');
+    throw new NotFoundException("Person not found");
   }
 
   res.status(HttpStatus.OK).json({

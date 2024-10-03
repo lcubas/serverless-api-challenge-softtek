@@ -7,17 +7,14 @@ import SwapiRoutes from "./features/swapi/routes";
 
 const app = express();
 
-app.use(
-  express.json(),
-  express.urlencoded({ extended: true }),
-);
+app.use(express.json(), express.urlencoded({ extended: true }));
 
 app.use("/healthcheck", HealthCheckRoutes);
 app.use("/users", UserRoutes);
 app.use("/swapi", SwapiRoutes);
 
-app.all(("*"), () => {
-  throw new NotFoundException;
+app.all("*", () => {
+  throw new NotFoundException();
 });
 
 app.use(errorHandlerMiddleware);

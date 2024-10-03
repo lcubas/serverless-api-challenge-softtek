@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import DynamoDBService from "../../../services/dynamo-db/DynamoDB";
-import { HttpStatus } from '../../../enums/HttpStatus';
+import { HttpStatus } from "../../../enums/HttpStatus";
 import type { Request, Response } from "express";
 import { USERS_TABLE } from "../contants";
 

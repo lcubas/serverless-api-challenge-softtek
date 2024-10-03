@@ -15,7 +15,7 @@ export const errorHandlerMiddleware = (
   error: Error | HttpException,
   _: Request,
   res: Response,
-  __: NextFunction
+  __: NextFunction,
 ): void => {
   let response: IResponseError = {
     code: HttpStatus.INTERNAL_SERVER_ERROR,
