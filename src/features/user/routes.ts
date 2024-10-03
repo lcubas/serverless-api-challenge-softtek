@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { asyncHandlerMiddleware } from "../../middlewares/async-handler.middleware";
-import { getById } from "./controllers/get-by-id.controller";
-import { create } from "./controllers/create.controller";
-import { index } from "./controllers/index.controller";
+import { getUserById } from "./controllers/get-user-by-id.controller";
+import { createUser } from "./controllers/create-user.controller";
+import { getUsers } from "./controllers/get-users.controller";
 import { requestValidatorMiddleware } from "../../middlewares/request-validator.middleware";
 import { createUserValidation } from "./validations/create-user.validation";
 
@@ -12,9 +12,9 @@ const router = Router();
 router.post(
   "/",
   asyncHandlerMiddleware(requestValidatorMiddleware(createUserValidation)),
-  asyncHandlerMiddleware(create)
+  asyncHandlerMiddleware(createUser)
 );
-router.get("/", asyncHandlerMiddleware(index));
-router.get("/:userId", asyncHandlerMiddleware(getById));
+router.get("/", asyncHandlerMiddleware(getUsers));
+router.get("/:userId", asyncHandlerMiddleware(getUserById));
 
 export default router;

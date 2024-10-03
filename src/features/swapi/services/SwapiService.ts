@@ -8,7 +8,7 @@ class SwapiService {
       const response = await axios.get(`${SwapiService.baseUrl}/species`);
       return response.data.results;
     } catch (error) {
-      console.error('Error fetching species:', error);
+      console.error('SwapiService::getSpecies', error);
       throw error;
     }
   }
@@ -18,7 +18,7 @@ class SwapiService {
       const response = await axios.get(`${SwapiService.baseUrl}/species/${id}`);
       return response.data;
     } catch (error) {
-      console.error('Error fetching species:', error);
+      console.error('SwapiService::getSpecieById', error);
       throw error;
     }
   }

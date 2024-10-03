@@ -1,4 +1,4 @@
-export abstract class AttributeMapping {
+export default abstract class AttributeMapping {
   mapping(data: Record<string, any>): Record<string, any> {
     return Object.keys(data).reduce((acc, key) => {
       acc[key] = this.getAttributesMapping(data);
@@ -18,5 +18,3 @@ export abstract class AttributeMapping {
    */
   abstract getAttributesMapping(item: Record<string, any>): Record<string, any>
 }
-
-export default AttributeMapping;

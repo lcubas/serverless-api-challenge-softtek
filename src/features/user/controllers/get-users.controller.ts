@@ -4,7 +4,7 @@ import { HttpStatus } from '../../../enums/HttpStatus';
 import NotFoundException from '../../../exceptions/NotFoundException';
 import { USERS_TABLE } from "../contants";
 
-export const index = async (_: Request, res: Response) => {
+export const getUsers = async (_: Request, res: Response) => {
   const data = {
     TableName: USERS_TABLE,
   };

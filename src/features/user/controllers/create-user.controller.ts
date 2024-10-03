@@ -9,7 +9,7 @@ interface CreateUserDTO {
   email: string;
 }
 
-export const create = async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response) => {
   const { name, email }: CreateUserDTO = req.body;
 
   const data = {

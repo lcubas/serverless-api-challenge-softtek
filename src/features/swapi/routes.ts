@@ -5,8 +5,7 @@ import { getSpecies } from './controllers/get-species.controller';
 
 const router = Router();
 
-// Define your routes here
-router.get('/species/', asyncHandlerMiddleware(getSpecies));
+router.get('/species', asyncHandlerMiddleware(getSpecies));
 router.get('/species/:specieId', asyncHandlerMiddleware(getSpeciesById));
 
 export default router;

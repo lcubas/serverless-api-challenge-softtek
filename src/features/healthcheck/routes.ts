@@ -4,7 +4,6 @@ import { check } from './controllers/check.controller';
 
 const router = Router();
 
-// Define your routes here
 router.get('/', asyncHandlerMiddleware(check));
 
 export default router;
